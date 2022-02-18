@@ -1,11 +1,23 @@
-import './App.css';
-import Model from './Components/Model';
+import React, { useState } from "react";
+import "./App.css";
+import Modal from "./Components/Model.js";
 
 function App() {
-  return (<div className="App">
-    <h1>Click this button to open MODEL</h1>
-    <button className="openModelBtn">Open MODEL</button>
-    <Model/>
+  const [modalOpen, setModalOpen] = useState(false);
+
+  return (
+    <div className="App">
+      <h1>Hey, click on the button to open the modal.</h1>
+      <button
+        className="openModalBtn"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+        Open
+      </button>
+
+      {modalOpen && <Modal setOpenModal={setModalOpen} />}
     </div>
   );
 }
